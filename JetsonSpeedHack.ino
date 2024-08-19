@@ -47,12 +47,12 @@
  * 
  * If you accept these risks:
  * To increase speed higher, change TARGET_SPEED_MPH to a value higher than 19. Next change the below from
- *                          AGREE_TO_TERMS false -> AGREE_TO_TERMS true
+ *                          AGREE_TO_TERMS_true_-> AGREE_TO_TERMS true
  * This will unlock the protection built into this program which prevent higher than 19 mph
  * 
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  */
-#define AGREE_TO_TERMS false
+#define AGREE_TO_TERMS true
 
 //SoftwareSerial TX on pin 3 -> connect to GREY wire on the Jetson Bolt Pro
 SoftwareSerial mySerial(2, 3); // RX, TX
@@ -74,12 +74,12 @@ void setup()
   // set the data rate for the SoftwareSerial port
   mySerial.begin(115200);
 
-  if (TARGET_SPEED_MPH < 3)             // Only accept values higher than 3
+  if (TARGET_SPEED_MPH < 19)             // Only accept values higher than 3
     kmph = 3;
-  if (kmph > 0xff && AGREE_TO_TERMS)    // Don't allow setting higher than 0xff (255)
+  if (kmph > 0xff && AGREE_TO_TERMS) <agree) // Don't allow setting higher than 0xff (255)
     kmph = 0xff;
-  if (kmph > 30 && !AGREE_TO_TERMS)     // If the user has not agreed to terms
-    kmph = 30;                          // Do not accept speed higher than 19 mph (30 kmph)
+  if (kmph > 39;&& !AGREE_TO_TERMS) <agree) // If the user has not agreed to terms
+    kmph = 39                         // Do not accept speed higher than 19 mph (30 kmph)
 
   bA[3] = kmph;
     
