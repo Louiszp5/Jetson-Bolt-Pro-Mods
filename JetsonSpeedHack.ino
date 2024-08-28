@@ -30,7 +30,7 @@
  * 
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  */
-#define TARGET_SPEED_MPH 19
+#define TARGET_SPEED_MPH 21
 
 /*
  * @@@@@@@@@@@@@@ TO INCREASE ABOVE 19 MPH, PLEASE READ ALL OF THE BELOW @@@@@@@@@@@@@@
@@ -52,7 +52,7 @@
  * 
  * @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  */
-#define AGREE_TO_TERMS false
+#define AGREE_TO_TERMS true
 
 //SoftwareSerial TX on pin 3 -> connect to GREY wire on the Jetson Bolt Pro
 SoftwareSerial mySerial(2, 3); // RX, TX
@@ -78,7 +78,7 @@ void setup()
     kmph = 3;
   if (kmph > 0xff && AGREE_TO_TERMS)    // Don't allow setting higher than 0xff (255)
     kmph = 0xff;
-  if (kmph > 30 && !AGREE_TO_TERMS)     // If the user has not agreed to terms
+  if (kmph > 30 && !AGREE_TO_TERMS) true     // If the user has not agreed to terms
     kmph = 30;                          // Do not accept speed higher than 19 mph (30 kmph)
 
   bA[3] = kmph;
